@@ -1,0 +1,228 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: rgb(40, 40, 40);
+  color: #fff;
+  transition: all 0.3s;
+}
+/* Menu header */
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: rgb(40, 40, 40);
+}
+/* Line top bottom */
+#sidebar ul.components {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+/* Menu hover */
+#sidebar ul li a:hover {
+  color: rgb(255, 255, 255);
+  background: rgb(44, 86, 114);
+}
+/* Menu active */
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: rgba(133, 7, 7, 0.774);
+}
+/* Menu Level 1 */
+.alv1{
+  font-size: 0.9em !important;
+  color: rgb(255, 255, 255);
+  background: rgb(40, 40, 40);
+}
+/* Menu Level 2 */
+.alv2{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(50, 50, 50);
+  background: rgb(220, 220, 220);
+}
+/* Menu Level 3 */
+.alv3{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(255, 255, 255);
+  background: rgb(40, 40, 40);
+}
+/* Menu Level 4 */
+.alv4{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(50, 50, 50);
+  background: rgb(220, 220, 220);
+}
+/* Menu Level 5 */
+.alv5{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(255, 255, 255);
+  background: rgb(40, 40, 40);
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: rgb(40, 40, 40);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: rgb(40, 40, 40);
+  color: #fff;
+  transition: all 0.3s;
+}
+/* Menu header */
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: rgb(40, 40, 40);
+}
+/* Line top bottom */
+#sidebar ul.components {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+/* Menu hover */
+#sidebar ul li a:hover {
+  color: rgb(255, 255, 255);
+  background: rgb(44, 86, 114);
+}
+/* Menu active */
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: rgba(133, 7, 7, 0.774);
+}
+/* Menu Level 1 */
+.alv1{
+  font-size: 0.9em !important;
+  color: rgb(255, 255, 255);
+  background: rgb(40, 40, 40);
+}
+/* Menu Level 2 */
+.alv2{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(50, 50, 50);
+  background: rgb(220, 220, 220);
+}
+/* Menu Level 3 */
+.alv3{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(255, 255, 255);
+  background: rgb(40, 40, 40);
+}
+/* Menu Level 4 */
+.alv4{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(50, 50, 50);
+  background: rgb(220, 220, 220);
+}
+/* Menu Level 5 */
+.alv5{
+  font-size: 0.9em !important;
+  padding-left: 10px !important;
+  color: rgb(255, 255, 255);
+  background: rgb(40, 40, 40);
+}
+
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}

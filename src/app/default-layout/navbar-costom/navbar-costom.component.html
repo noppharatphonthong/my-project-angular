@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="height: 55px;">
+  <a href="#" class="navbar-brand" id="menu-toggle" (click)="onClickMenu($event)"><i class="fa fa-bars"
+      style="font-size:30px;" aria-hidden="true"></i></a>
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/angular-logo.jpg" alt="Smiley face" height="30" width="30"> +
+    <img src="assets/img/bootstrap-logo.jpg" alt="Smiley face" height="28" width="28"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/pages/home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="pages/page1">page 1</a>
+          <a class="dropdown-item" href="pages/page2">page 2</a>
+          <a class="dropdown-item" href="pages/page3">page 3</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </form>
+    &nbsp; &nbsp; &nbsp;
+    <div>
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="badge badge-danger align-top">{{numberOfNoti}}</span>
+            <i class="fa fa-bell navbar-brand" style="font-size:20px;"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    &nbsp;
+    <div><label class="navbar-brand">{{username}}</label></div>
+    &nbsp;
+    <div>
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle-o navbar-brand" style="font-size:40px;" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Setting</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/login" routerLinkActive="active">Sign Out</a>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<body>
+  <app-sidebar-cuttom text="Navbar + Sidebar"></app-sidebar-cuttom>
+</body>
+
