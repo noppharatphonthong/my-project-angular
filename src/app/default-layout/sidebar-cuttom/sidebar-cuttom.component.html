@@ -5,7 +5,7 @@
             <h5>Bootstrap Sidebar</h5>
         </div>
         <ul class="list-unstyled components">
-            <li><a class="alv1" routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li><a class="alv1" routerLink="/pages/home" routerLinkActive="active">Home</a></li>
             <li><a class="alv1 dropdown-toggle" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
                 <ul class="alv2 collapse list-unstyled" id="pageSubmenu">
                     <li><a routerLink="/pages/page1" routerLinkActive="active">Page 1</a></li>
@@ -23,7 +23,12 @@
                     <li><a routerLink="/pages/page3" routerLinkActive="active">Page 3</a></li>
                 </ul>
             </li>
-            <li><a class="alv1" routerLink="/home" routerLinkActive="active">Home2</a></li>
+            <li><a class="alv1 dropdown-toggle" href="#componentSubmenu" data-toggle="collapse" aria-expanded="false">Component</a>
+                <ul class="alv2 collapse list-unstyled" id="componentSubmenu">
+                    <li><a routerLink="/pages/component/button" routerLinkActive="active">Button</a></li>
+                    <li><a routerLink="/pages/component/form" routerLinkActive="active">Form</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 

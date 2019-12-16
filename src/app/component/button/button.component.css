@@ -1,0 +1,21 @@
+.app-btn-search {color: #fff;background-color: #3077a7;}
+.app-btn-add    {color: #fff;background-color: #6fa730;}
+.app-btn-edit   {color: #fff;background-color: #d6a53b;}
+.app-btn-delete {color: #fff;background-color: #af3737;}
+.app-btn-back   {color: #fff;background-color: #969696;}
+.app-btn-confirm{color: #fff;background-color: #6fa730;}
+.app-btn-cancel {color: #fff;background-color: #af3737;}
+
+.app-btn-check {color: #fff;background-color: #3077a7;}
+.app-btn-clear {color: #fff;background-color: #969696;}
+.app-btn-detail {color: #fff;background-color: #d6a53b;}
+.app-btn-download {color: #fff;background-color: #3077a7;}
+.app-btn-upload {color: #fff;background-color: #3077a7;}
+.app-btn-export {color: #fff;background-color: #3077a7;}
+.app-btn-home {color: #fff;background-color: #3077a7;}
+.app-btn-seve {color: #fff;background-color: #3077a7;}
+.app-btn-print {color: #fff;background-color: #3077a7;}
+
+.app-margin{
+    margin : 2px;
+}

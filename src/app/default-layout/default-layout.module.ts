@@ -24,8 +24,7 @@ import { SidebarCuttomComponent } from './sidebar-cuttom/sidebar-cuttom.componen
   exports:[
     DefaultLayoutComponent,
     NavbarCostomComponent,
-    SidebarCuttomComponent,
-    DefaultLayoutRoutingModule
+    SidebarCuttomComponent
   ]
 })
 export class DefaultLayoutModule { }
