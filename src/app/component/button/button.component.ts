@@ -8,6 +8,15 @@ import { ButtonConstant } from 'src/app/constant/index';
 })
 export class ButtonComponent implements OnInit {
   @Input() class: string;
+  @Input() type: string;
+  @Input() textTH: string;
+  @Input() textEN: string;
+  @Input() icon: string;
+  @Input() color: any;
+  @Input() backgroundColor: any;
+  @Input() styleCustom: string ;
+  @Input() disabled: boolean = false;
+  
   public buttonConstant = {
     "class": "",
     "textTH": "",
@@ -17,6 +26,7 @@ export class ButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.type=(this.type=='app-submit')?'submit':'button';
     this.checkClassButton();
   }
 
@@ -27,6 +37,12 @@ export class ButtonComponent implements OnInit {
         if (obj.class == this.class) {
           // console.log("Class Button : " + obj.class);
           this.buttonConstant = obj;
+          if(ButtonConstant.custom.class==this.class){
+            this.buttonConstant.textTH =(this.textTH)? this.textTH : obj.textTH;
+            this.buttonConstant.textEN =(this.textEN)? this.textEN : obj.textEN;
+            this.buttonConstant.icon =(this.icon)? this.icon : obj.icon;
+            this.styleCustom =  (this.styleCustom)? JSON.parse(this.styleCustom.replace(/'/g, '"')):"";            
+          }
         }
       }
     }

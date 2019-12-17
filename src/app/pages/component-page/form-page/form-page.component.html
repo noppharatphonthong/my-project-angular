@@ -1,29 +1,72 @@
 <h1>Form</h1>
 <div class="card">
     <div class="card-body">
-        <form>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. {{exampleInputEmail1}}</small>
-                       
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="row">
+            <div class="col-sm-6">
+                <h5>Form Input</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form (ngSubmit)="onSubmit()" #formHtml1="ngForm">
+                            <h5>Group inputData</h5>
+                            <!-- ********** textInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="textInput">Text <span style="color:red;">* required , minlength="5" , maxlength="7" </span></label>
+                                        <input type="text" id="textInput" class="form-control" name="textInput" [(ngModel)]="formTs1.inputData.textInput" #textInput="ngModel"
+                                            required costom-minlength="5" costom-maxlength="7" >
+                                            <!-- {{textInput.errors | json}} -->
+                                        <span class="help-block" *ngIf="textInput.invalid && textInput.touched">
+                                            <div class="app-invalid" *ngIf="textInput.errors.required">Text is required</div>
+                                            <div class="app-invalid" *ngIf="textInput.errors.minlength">Text min length {{textInput.errors.minlength.requiredMinLength}}</div>
+                                            <div class="app-invalid" *ngIf="textInput.errors.maxlength">Text max length {{textInput.errors.maxlength.requiredMaxLength}}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ********** numberInput ********** -->
+                            <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="numberInput">Number <span style="color:red;">* required , minlength="5" , maxlength="7" </span></label>
+                                            <input type="number" id="numberInput" class="form-control" name="numberInput" 
+                                                [(ngModel)]="formTs1.inputData.numberInput" #numberInput="ngModel"
+                                                required costom-minlength="2" costom-maxlength="7">
+                                            <span class="help-block" *ngIf="numberInput.invalid && numberInput.touched">
+                                                <div class="app-invalid" *ngIf="numberInput.errors.required">Number is required</div>
+                                                <div class="app-invalid" *ngIf="numberInput.errors.minlength">Number min length {{numberInput.errors.minlength.requiredMinLength}}</div>
+                                                <div class="app-invalid" *ngIf="numberInput.errors.maxlength">Number max length {{numberInput.errors.maxlength.requiredMaxLength}}</div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <app-button class="app-btn-seve" type="app-submit" [disabled]="!formHtml1.valid">
+                                    </app-button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col-sm-3">
+                <h5>Form Change</h5>
+                <div class="card">
+                    <div class="card-body">
+                        {{formTs1 | json }}
+                    </div>
                 </div>
             </div>
-        </form>
+            <div class="col-sm-3">
+                <h5>Form Output</h5>
+                <div class="card">
+                    <div class="card-body">
+                        {{formSubmit1 | json}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

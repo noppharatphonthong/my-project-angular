@@ -1,4 +1,4 @@
-<button class="btn btn-sm {{buttonConstant.class}} app-margin" type="button">
+<button class="btn btn-sm {{buttonConstant.class}} app-margin" type="{{type}}" [disabled]="disabled" [ngStyle]="styleCustom">
     <i class="{{buttonConstant.icon}}"></i>
     {{buttonConstant.textTH}}
   </button>
