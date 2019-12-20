@@ -1,14 +1,4 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
-.samp-danger{
-    color: rgb(238, 0, 0);
-}
 
-input.ng-invalid.ng-touched {
-    border: solid 1px rgb(238, 0, 0);
-    background: rgb(253, 220, 220);
-}
-
-.app-invalid{
-    color: rgb(238, 0, 0);
-}

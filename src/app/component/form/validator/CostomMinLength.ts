@@ -16,11 +16,12 @@ export class CostomMinLength implements Validator {
   constructor(@Attribute('costom-minlength') public minlength: number) { }
 
   validate(control: FormControl) {
-    var value = Number(control.value);
-    var minlength = Number(this.minlength);
+    let value = (!isNaN(Number(control.value)))?Number(control.value):control.value;
+    let valueLength = (!isNaN(Number(control.value)))?Number(control.value).toString().length:control.value.length;
+    let minlength = Number(this.minlength);
 
-    if (value && !isNaN(value) && !isNaN(minlength) && value.toString().length < minlength) {
-      return { "minlength": { "requiredMinLength": this.minlength, "actualLength": value.toString().length } };
+    if (value && !isNaN(minlength) && valueLength < minlength) {
+      return { "minlength": { "requiredMinLength": this.minlength, "actualLength": valueLength } };
     }
     return null;
   }

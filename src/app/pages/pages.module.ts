@@ -12,9 +12,9 @@ import { ComponentPageComponent } from './component-page/component-page.componen
 import { ButtonPageComponent } from './component-page/button-page/button-page.component';
 import { ComponentModule } from '../component/component.module';
 import { FormPageComponent } from './component-page/form-page/form-page.component';
-import { StudentsComponent } from './component-page/students/students.component';
 import { CostomMaxLength } from '../component/form/validator/CostomMaxLength';
 import { CostomMinLength } from '../component/form/validator/CostomMinLength';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -28,15 +28,15 @@ import { CostomMinLength } from '../component/form/validator/CostomMinLength';
 
     Page1Component,
     Page2Component,
-    Page3Component,
-    StudentsComponent
+    Page3Component
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     ComponentModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    NgSelectModule
   ],
   exports:[
     HomePageComponent,

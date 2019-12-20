@@ -16,11 +16,12 @@ export class CostomMaxLength implements Validator {
   constructor(@Attribute('costom-maxlength') public maxlength: number) { }
 
   validate(control: FormControl) {
-    var value = Number(control.value);
-    var maxlength = Number(this.maxlength);
+    let value = (!isNaN(Number(control.value)))?Number(control.value):control.value;
+    let valueLength = (!isNaN(Number(control.value)))?Number(control.value).toString().length:control.value.length;
+    let maxlength = Number(this.maxlength);
 
-    if (value && !isNaN(value) && !isNaN(maxlength) && value.toString().length > maxlength) {
-      return { "maxlength": { "requiredMaxLength": this.maxlength, "actualLength": value.toString().length } };
+    if (value && !isNaN(maxlength) && valueLength > maxlength) {
+      return { "maxlength": { "requiredMaxLength": this.maxlength, "actualLength": valueLength } };
     }
     return null;
   }

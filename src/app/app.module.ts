@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { AppComponent } from './app.component';
 
 // Module
@@ -16,6 +17,7 @@ import { PagesModule } from './pages/pages.module';
   ],
   imports: [
     BrowserModule,
+    NgSelectModule,
     AppBootstrapModule,
     AppRoutingModule,
     DefaultLayoutModule,

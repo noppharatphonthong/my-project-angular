@@ -6,64 +6,494 @@
                 <h5>Form Input</h5>
                 <div class="card">
                     <div class="card-body">
-                        <form (ngSubmit)="onSubmit()" #formHtml1="ngForm">
-                            <h5>Group inputData</h5>
+                        <form (ngSubmit)="onSubmitForm1()" #form1Html="ngForm">
+                            <h5>Group inputData</h5>                            
                             <!-- ********** textInput ********** -->
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="textInput">Text <span style="color:red;">* required , minlength="5" , maxlength="7" </span></label>
-                                        <input type="text" id="textInput" class="form-control" name="textInput" [(ngModel)]="formTs1.inputData.textInput" #textInput="ngModel"
-                                            required costom-minlength="5" costom-maxlength="7" >
+                                        <label>Text 
+                                            <span class="app-required-color">* 
+                                                <span style="color:rgb(170, 170, 170)"> required , Min length 4 , Max length 20</span>
+                                            </span>
+                                        </label>
+                                        <input type="text" id="textInput" name="textInput" [(ngModel)]="form1Ts.inputData.textInput" #textInput="ngModel"
+                                            class="form-control {{(textInput.invalid && (textInput.touched || form1Html.submitted))?'app-input-invalid':''}}"
+                                            required costom-minlength="4" costom-maxlength="20" >
                                             <!-- {{textInput.errors | json}} -->
-                                        <span class="help-block" *ngIf="textInput.invalid && textInput.touched">
+                                        <span class="help-block" *ngIf="textInput.invalid && (textInput.touched || form1Html.submitted)">
                                             <div class="app-invalid" *ngIf="textInput.errors.required">Text is required</div>
-                                            <div class="app-invalid" *ngIf="textInput.errors.minlength">Text min length {{textInput.errors.minlength.requiredMinLength}}</div>
-                                            <div class="app-invalid" *ngIf="textInput.errors.maxlength">Text max length {{textInput.errors.maxlength.requiredMaxLength}}</div>
+                                            <div class="app-invalid" *ngIf="textInput.errors.minlength">Text min length {{textInput.errors.minlength.requiredMinLength}}
+                                                actual length {{textInput.errors.minlength.actualLength}}</div>
+                                            <div class="app-invalid" *ngIf="textInput.errors.maxlength">Text max length {{textInput.errors.maxlength.requiredMaxLength}}
+                                                actual length {{textInput.errors.maxlength.actualLength}}</div>
                                         </span>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- ********** textareaInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Text Area
+                                            <span class="app-required-color">* 
+                                                <span style="color:rgb(170, 170, 170)"> required , Min length 4 , Max length 35</span>
+                                            </span>
+                                        </label>
+                                        <textarea type="text" id="textareaInput" name="textareaInput" [(ngModel)]="form1Ts.inputData.textareaInput" #textareaInput="ngModel"
+                                            class="form-control {{(textareaInput.invalid && (textareaInput.touched || form1Html.submitted))?'app-input-invalid':''}}"
+                                            required costom-minlength="4" costom-maxlength="35" rows="3"></textarea>
+                                            <!-- {{textareaInput.errors | json}} -->
+                                        <span class="help-block" *ngIf="textareaInput.invalid && (textareaInput.touched || form1Html.submitted)">
+                                            <div class="app-invalid" *ngIf="textareaInput.errors.required">Text Area is required</div>
+                                            <div class="app-invalid" *ngIf="textareaInput.errors.minlength">Text Area min length {{textareaInput.errors.minlength.requiredMinLength}}
+                                                actual length {{textareaInput.errors.minlength.actualLength}}</div>
+                                            <div class="app-invalid" *ngIf="textareaInput.errors.maxlength">Text Area max length {{textareaInput.errors.maxlength.requiredMaxLength}}
+                                                actual length {{textareaInput.errors.maxlength.actualLength}}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- ********** numberInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Number 
+                                            <span class="app-required-color">* 
+                                                <span style="color:rgb(170, 170, 170)"> required , Min length 5 , Max length 7</span>
+                                            </span>
+                                        </label>
+                                        <input type="number" id="numberInput" name="numberInput" [(ngModel)]="form1Ts.inputData.numberInput" #numberInput="ngModel"
+                                            class="form-control {{(numberInput.invalid && (numberInput.touched || form1Html.submitted))?'app-input-invalid':''}}" 
+                                            required costom-minlength="5" costom-maxlength="7">
+                                            <!-- {{numberInput.errors | json}} -->
+                                        <span class="help-block" *ngIf="numberInput.invalid && (numberInput.touched || form1Html.submitted)">
+                                            <div class="app-invalid" *ngIf="numberInput.errors.required">Number is required</div>
+                                            <div class="app-invalid" *ngIf="numberInput.errors.minlength">Number min length {{numberInput.errors.minlength.requiredMinLength}}
+                                                actual length {{numberInput.errors.minlength.actualLength}}</div>
+                                            <div class="app-invalid" *ngIf="numberInput.errors.maxlength">Number max length {{numberInput.errors.maxlength.requiredMaxLength}}
+                                                actual length {{numberInput.errors.maxlength.actualLength}}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ********** passwordInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Password 
+                                            <span class="app-required-color">* 
+                                                <span style="color:rgb(170, 170, 170)"> required , Min length 5 , Max length 7</span>
+                                            </span>
+                                        </label>
+                                        <input type="password" id="passwordInput" name="passwordInput" [(ngModel)]="form1Ts.inputData.passwordInput" #passwordInput="ngModel"
+                                            class="form-control {{(passwordInput.invalid && (passwordInput.touched || form1Html.submitted))?'app-input-invalid':''}}" 
+                                            required costom-minlength="5" costom-maxlength="7">
+                                            <!-- {{passwordInput.errors | json}} -->
+                                        <span class="help-block" *ngIf="passwordInput.invalid && (passwordInput.touched || form1Html.submitted)">
+                                            <div class="app-invalid" *ngIf="passwordInput.errors.required">Password is required</div>
+                                            <div class="app-invalid" *ngIf="passwordInput.errors.minlength">Password min length {{passwordInput.errors.minlength.requiredMinLength}}
+                                                actual length {{passwordInput.errors.minlength.actualLength}}</div>
+                                            <div class="app-invalid" *ngIf="passwordInput.errors.maxlength">Password max length {{passwordInput.errors.maxlength.requiredMaxLength}}
+                                                actual length {{passwordInput.errors.maxlength.actualLength}}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ********** emailInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Email 
+                                            <span class="app-required-color">* 
+                                                <span style="color:rgb(170, 170, 170)"> required , Email</span>
+                                            </span>
+                                        </label>
+                                        <input type="email" id="emailInput" name="emailInput" [(ngModel)]="form1Ts.inputData.emailInput" #emailInput="ngModel"
+                                            class="form-control {{(emailInput.invalid && (emailInput.touched || form1Html.submitted))?'app-input-invalid':''}}" 
+                                            required email>
+                                            <!-- {{emailInput.errors | json}} -->
+                                        <span class="help-block" *ngIf="emailInput.invalid && (emailInput.touched || form1Html.submitted)">
+                                            <div class="app-invalid" *ngIf="emailInput.errors.required">Email is required</div>
+                                            <div class="app-invalid" *ngIf="emailInput.errors.email">Email is required Email</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- ********** fileInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>File 
+                                            <span class="app-required-color">* 
+                                                <span style="color:rgb(170, 170, 170)"> required</span>
+                                            </span>
+                                        </label>
+                                        <div class="input-group">
+                                            <label for="fileInput" class="form-control label-input-file {{(fileInput.invalid && (fileInput.touched || form1Html.submitted))?'app-input-invalid':''}}" >
+                                                    {{labelInputTypeFile(form1Ts.inputData.fileInputDtl)}}
+                                            </label>
+                                            <input type="file" id="fileInput" name="fileInput" (change)="onChangeFileInput($event)"
+                                                    [(ngModel)]="form1Ts.inputData.fileInput" #fileInput="ngModel"
+                                                    required>
+                                            <div class="input-group-append">
+                                                <label for="fileInput" class="input-group-text" >{{inputTypeFileLabelBrowse}}</label>
+                                            </div>
+                                        </div>
+                                        <span class="help-block" *ngIf="fileInput.invalid && (fileInput.touched || form1Html.submitted)">
+                                            <div class="app-invalid" *ngIf="fileInput.errors.required">File is required</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <!-- ********** multipleFileInput ********** -->
                             <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="numberInput">Number <span style="color:red;">* required , minlength="5" , maxlength="7" </span></label>
-                                            <input type="number" id="numberInput" class="form-control" name="numberInput" 
-                                                [(ngModel)]="formTs1.inputData.numberInput" #numberInput="ngModel"
-                                                required costom-minlength="2" costom-maxlength="7">
-                                            <span class="help-block" *ngIf="numberInput.invalid && numberInput.touched">
-                                                <div class="app-invalid" *ngIf="numberInput.errors.required">Number is required</div>
-                                                <div class="app-invalid" *ngIf="numberInput.errors.minlength">Number min length {{numberInput.errors.minlength.requiredMinLength}}</div>
-                                                <div class="app-invalid" *ngIf="numberInput.errors.maxlength">Number max length {{numberInput.errors.maxlength.requiredMaxLength}}</div>
+                                            <label>Multiple File
+                                                <span class="app-required-color">* 
+                                                    <span style="color:rgb(170, 170, 170)"> required</span>
+                                                </span>
+                                            </label>
+                                            <div class="input-group">
+                                                <label for="multipleFileInput" class="form-control label-input-file {{(multipleFileInput.invalid && (multipleFileInput.touched || form1Html.submitted))?'app-input-invalid':''}}" >
+                                                        {{labelInputTypeFile(form1Ts.inputData.multipleFileInputDtl)}}
+                                                </label>
+                                                <input type="file" id="multipleFileInput" name="multipleFileInput" (change)="onChangeMultipleFileInput($event)"
+                                                        [(ngModel)]="form1Ts.inputData.multipleFileInput" #multipleFileInput="ngModel"
+                                                        multiple required>
+                                                <div class="input-group-append">
+                                                    <label for="multipleFileInput" class="input-group-text" >{{inputTypeFileLabelBrowse}}</label>
+                                                </div>
+                                            </div>
+                                            <span class="help-block" *ngIf="multipleFileInput.invalid && (multipleFileInput.touched || form1Html.submitted)">
+                                                <div class="app-invalid" *ngIf="multipleFileInput.errors.required">File is required</div>
                                             </span>
+                                        </div>
+                                    </div>
+                                </div> 
+    
+
+                            <!-- ********** checkboxInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="checkbox" id="checkboxInput" name="checkboxInput" 
+                                            [(ngModel)]="form1Ts.inputData.checkboxInput" #checkboxInput="ngModel" required>
+                                            <label for="checkboxInput">Checkbox <span class="app-required-color">*</span>
+                                                <label [ngStyle]="{ 'color': (form1Ts.inputData.checkboxInput==true ? 'green' : 'red') }">{{form1Ts.inputData.checkboxInput}}</label>
+                                            </label> 
+                                        <span class="help-block" *ngIf="checkboxInput.invalid && (checkboxInput.touched || form1Html.submitted)">
+                                            <div class="app-invalid" *ngIf="checkboxInput.errors.required ">Checkbox is requsired</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- ********** radioInput ********** -->
+                             <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input type="radio" name="radioInput" id="radioInput1" value="radio1" [(ngModel)]="form1Ts.inputData.radioInput" #radioInput="ngModel">
+                                        <label for="radioInput">Radio 1</label> 
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input type="radio" name="radioInput" id="radioInput2" value="radio2" [(ngModel)]="form1Ts.inputData.radioInput" #radioInput="ngModel">
+                                        <label for="radioInput">Radio 2</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <h5>Group selectData</h5>
+                            <!-- ********** selectInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Select
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">
+                                        <ng-select [items]="selectItems"
+                                            placeholder="Select.."
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            [searchable]="true" 
+                                            [clearable]="true"
+                                            [(ngModel)]="form1Ts.selectData.selectInput"
+                                            name="selectInput">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ********** multipleSelectInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Multiple Select
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required , Max Selected Items 2</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">    
+                                        <ng-select [items]="multipleSelectItems"
+                                            placeholder="Select.."
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            [searchable]="true" 
+                                            [clearable]="true"
+                                            [multiple]="true"
+                                            [maxSelectedItems]="2"
+                                            [closeOnSelect]="false"
+                                            [(ngModel)]="form1Ts.selectData.multipleSelectInput"
+                                            name="multipleSelectInput">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ********** multipleSelectHideInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Multiple Select Hide
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">
+                                        <ng-select [items]="selectItems"
+                                            placeholder="Select.."
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            [multiple]="true"
+                                            [hideSelected]="true"
+                                            [searchable]="true" 
+                                            [clearable]="true"
+                                            [(ngModel)]="form1Ts.selectData.multipleSelectHideInput"
+                                            name="multipleSelectHideInput">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- ********** multipleSelectGroupInput ********** -->
+                             <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Multiple Select Group
+                                            <span class="app-required-color">* 
+                                                <span style="color:rgb(170, 170, 170)"> required , Max Selected Items 4</span>
+                                            </span>
+                                        </label>
+                                        <div class="form-group">    
+                                            <ng-select [items]="multipleSelectGroupItems"
+                                                placeholder="Select.."
+                                                bindLabel="name"
+                                                bindValue="id"
+                                                groupBy="group"
+                                                [selectableGroup]="true"
+                                                [selectableGroupAsModel]="false"
+                                                [searchable]="true" 
+                                                [clearable]="true"
+                                                [multiple]="true"
+                                                [maxSelectedItems]="4"
+                                                [closeOnSelect]="false"
+                                                [(ngModel)]="form1Ts.selectData.multipleSelectGroupInput"
+                                                name="multipleSelectGroupInput">
+                                            </ng-select>
                                         </div>
                                     </div>
                                 </div>
 
+                            <!-- ********** multipleSelectCheckboxInput ********** -->
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <app-button class="app-btn-seve" type="app-submit" [disabled]="!formHtml1.valid">
-                                    </app-button>
+                                    <label>Multiple Select Checkbox
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">    
+                                        <ng-select [items]="multipleSelectCheckboxItems"
+                                            placeholder="Select.."
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            groupBy="group"
+                                            [selectableGroup]="true"
+                                            [selectableGroupAsModel]="false"
+                                            [searchable]="true" 
+                                            [clearable]="true"
+                                            [multiple]="true"
+                                            [closeOnSelect]="false"
+                                            [(ngModel)]="form1Ts.selectData.multipleSelectCheckboxInput"
+                                            name="multipleSelectCheckboxInput"> 
+                                            <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                                                <input id="group-item-{{index}}" name="group-item-{{index}}" type="checkbox" [ngModel]="item$.selected"/>{{item.group}}
+                                            </ng-template>
+                                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                                <input id="item-{{index}}" name="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/>{{item.name}}
+                                            </ng-template>
+                                        </ng-select>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                    <div class="col-sm-12">
+                                        Form status  = <label [ngStyle]="{ 'color': (form1Html.form.status=='VALID' ? 'green' : 'red') }">{{form1Html.form.status}}</label> 
+                                        Submitted = <label [ngStyle]="{ 'color': (form1Html.submitted==true ? 'green' : 'red') }">{{form1Html.submitted}}</label> 
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <app-button class="app-btn-seve" type="app-submit"></app-button> Ignoring form status
+                                </div>
+                                <div class="col-sm-6">
+                                    <app-button class="app-btn-seve" type="app-submit" [disabled]="!form1Html.valid"></app-button> Interested form status = VALID
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <app-button class="app-btn-custom" type="app-button" (click)="setForm1Auto()" textTH="กรอกอัตโนมัติ" icon="fa fa fa-cogs" styleCustom="{'color': '#fff','background-color': '#969696'}"></app-button>
+                                    <app-button class="app-btn-clear" type="app-button" (click)="clearForm()"></app-button>
+                                </div>
+                            </div>
+                            
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <h5>Form Change</h5>
                 <div class="card">
                     <div class="card-body">
-                        {{formTs1 | json }}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                    inputData:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-4">
+                                textInput               <br>
+                                textareaInput           <br>
+                                numberInput             <br>
+                                passwordInput           <br>
+                                emailInput              <br>
+                                fileInput               <br>
+                                fileInputDtl            <br>
+                                multipleFileInput       <br>
+                                multipleFileInputDtl    <br>
+                                checkboxInput           <br>
+                                radioInput              <br>
+                            </div>
+                            <div class="col-sm-7">
+                                : {{form1Ts.inputData.textInput}}<br>
+                                : {{form1Ts.inputData.textareaInput}}<br>
+                                : {{form1Ts.inputData.numberInput}}<br>
+                                : {{form1Ts.inputData.passwordInput}}<br>
+                                : {{form1Ts.inputData.emailInput}}<br>
+                                : {{form1Ts.inputData.fileInput}}<br>
+                                : {{form1Ts.inputData.fileInputDtl}}<br>
+                                : {{form1Ts.inputData.multipleFileInput}}<br>
+                                : {{form1Ts.inputData.multipleFileInputDtl}}<br>
+                                : {{form1Ts.inputData.checkboxInput}}<br>
+                                : {{form1Ts.inputData.radioInput}}<br>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                    selectData:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-4">
+                                selectInput             <br>
+                                multipleSelectInput             <br>
+                                multipleSelecttHideInput     <br>
+                                multipleSelectGroupInput     <br>
+                                multipleSelectCheckboxInput     <br>
+                            </div>
+                            <div class="col-sm-7">
+                                : {{form1Ts.selectData.selectInput}}<br>
+                                : {{form1Ts.selectData.multipleSelectInput}}<br>
+                                : {{form1Ts.selectData.multipleSelectHideInput}}<br>
+                                : {{form1Ts.selectData.multipleSelectGroupInput}}<br>
+                                : {{form1Ts.selectData.multipleSelectCheckboxInput}}<br>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
+                <br>
                 <h5>Form Output</h5>
                 <div class="card">
                     <div class="card-body">
-                        {{formSubmit1 | json}}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                    inputData:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-4">
+                                textInput               <br>
+                                textareaInput           <br>
+                                numberInput             <br>
+                                passwordInput           <br>
+                                emailInput              <br>
+                                fileInput               <br>
+                                fileInputDtl            <br>
+                                multipleFileInput       <br>
+                                multipleFileInputDtl    <br>
+                                checkboxInput           <br>
+                                radioInput              <br>
+                            </div>
+                            <div class="col-sm-7">
+                                : {{form1Output.inputData.textInput}}<br>
+                                : {{form1Output.inputData.textareaInput}}<br>
+                                : {{form1Output.inputData.numberInput}}<br>
+                                : {{form1Output.inputData.passwordInput}}<br>
+                                : {{form1Output.inputData.emailInput}}<br>
+                                : {{form1Output.inputData.fileInput}}<br>
+                                : {{form1Output.inputData.fileInputDtl}}<br>
+                                : {{form1Output.inputData.multipleFileInput}}<br>
+                                : {{form1Output.inputData.multipleFileInputDtl}}<br>
+                                : {{form1Output.inputData.checkboxInput}}<br>
+                                : {{form1Output.inputData.radioInput}}<br>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                    selectData:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-4">
+                                selectInput             <br>
+                                multipleSelectInput     <br>
+                                multipleSelectHideInput             <br>
+                                multipleSelectGroupInput     <br>
+                                multipleSelectCheckboxInput     <br>
+                            </div>
+                            <div class="col-sm-7">
+                                : {{form1Output.selectData.selectInput}}<br>
+                                : {{form1Output.selectData.multipleSelectInput}}<br>
+                                : {{form1Output.selectData.multipleSelectHideInput}}<br>
+                                : {{form1Output.selectData.multipleSelectGroupInput}}<br>
+                                : {{form1Output.selectData.multipleSelectCheckboxInput}}<br>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

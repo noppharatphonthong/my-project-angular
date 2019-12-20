@@ -7,7 +7,6 @@ import { Page1Component } from '../pages/page1/page1.component';
 import { Page2Component } from '../pages/page2/page2.component';
 import { Page3Component } from '../pages/page3/page3.component';
 import { FormPageComponent } from '../pages/component-page/form-page/form-page.component';
-import { StudentsComponent } from '../pages/component-page/students/students.component';
 
 
 const routes: Routes = [
@@ -19,7 +18,6 @@ const routes: Routes = [
       { path: 'home', component: HomePageComponent }, 
       { path: 'component/button', component: ButtonPageComponent }, 
       { path: 'component/form', component:FormPageComponent }, 
-      { path: 'component/students', component: StudentsComponent }, 
       { path: 'page1', component: Page1Component }, 
       { path: 'page2', component: Page2Component },
       { path: 'page3', component: Page3Component }
