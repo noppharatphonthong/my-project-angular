@@ -183,7 +183,7 @@
                             <!-- ********** checkboxInput ********** -->
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group">
+                                    <div class="form-group"> 
                                         <input type="checkbox" id="checkboxInput" name="checkboxInput" 
                                             [(ngModel)]="form1Ts.inputData.checkboxInput" #checkboxInput="ngModel" required>
                                             <label for="checkboxInput">Checkbox <span class="app-required-color">*</span>
@@ -277,6 +277,7 @@
                                             [hideSelected]="true"
                                             [searchable]="true" 
                                             [clearable]="true"
+                                            [closeOnSelect]="false"
                                             [(ngModel)]="form1Ts.selectData.multipleSelectHideInput"
                                             name="multipleSelectHideInput">
                                         </ng-select>
