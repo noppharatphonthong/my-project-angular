@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppConstant } from 'src/app/constant/index';
 declare var $: any;
@@ -33,7 +33,7 @@ export class FormPageComponent implements OnInit {
 
   setForm1Default() {
     // inputData
-    this.form1Ts.inputData.textInput = '';
+    this.form1Ts.inputData.textInput = 'Mr Game Developer';
     this.form1Ts.inputData.textareaInput = '';
     this.form1Ts.inputData.numberInput = '';
     this.form1Ts.inputData.passwordInput = '';
@@ -135,6 +135,7 @@ export class FormPageComponent implements OnInit {
 
   // ************************************************************************************************
   // ******************* Input Type Select **********************************************************
+  // Use ng-select
   public selectItems = [
     {id: 1, name: 'Item 1'},
     {id: 2, name: 'Item 2'},
@@ -178,6 +179,31 @@ export class FormPageComponent implements OnInit {
   // ******************* Input Type Select End ******************************************************
   // ************************************************************************************************
 
+  // ************************************************************************************************
+  // ******************* Input Date Picker **********************************************************
+  // Use ng-pick-datetime
+
+
+  chosenYearHandler( event:any,datepicker:any ) {
+    console.log("event Year : ",event);
+    
+    var date = new Date(event)
+    this.form1Ts.datePickerData.yearPickerInput = date;
+    datepicker.close();
+  }
+
+  chosenMonthHandler( event:any,datepicker:any ) {
+    console.log("event Month : ",event);
+    
+    var date = new Date(event)
+    this.form1Ts.datePickerData.monthPickerInput = date;
+    datepicker.close();
+  }
+
+
+  // ******************* Input Date Picker End ******************************************************
+  // ************************************************************************************************
+
 }
 
 // **************************************************************************************************
@@ -202,6 +228,13 @@ class Form_1 {
     multipleSelectHideInput: null,
     multipleSelectGroupInput:null,
     multipleSelectCheckboxInput:null
+  }
+  datePickerData: object = {
+    yearPickerInput: null,
+    monthPickerInput:null,
+    datePickerInput: null,
+    timePickerInput: null,
+    dateTimePickerInput:null
   }
 }
 // ******************* Form1 Model End **************************************************************

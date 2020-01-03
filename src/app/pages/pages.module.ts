@@ -15,6 +15,7 @@ import { FormPageComponent } from './component-page/form-page/form-page.componen
 import { CostomMaxLength } from '../component/form/validator/CostomMaxLength';
 import { CostomMinLength } from '../component/form/validator/CostomMinLength';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ComponentModule,
     ReactiveFormsModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule
+    
   ],
   exports:[
     HomePageComponent,

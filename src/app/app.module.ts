@@ -8,6 +8,7 @@ import { AppBootstrapModule } from './app-bootstrap.module';
 import { AppRoutingModule } from './app-routing.module';
 import { DefaultLayoutModule } from './default-layout/default-layout.module';
 import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -17,6 +18,7 @@ import { PagesModule } from './pages/pages.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NgSelectModule,
     AppBootstrapModule,
     AppRoutingModule,

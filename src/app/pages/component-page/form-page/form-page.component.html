@@ -19,7 +19,7 @@
                                         </label>
                                         <input type="text" id="textInput" name="textInput" [(ngModel)]="form1Ts.inputData.textInput" #textInput="ngModel"
                                             class="form-control {{(textInput.invalid && (textInput.touched || form1Html.submitted))?'app-input-invalid':''}}"
-                                            required costom-minlength="4" costom-maxlength="20" >
+                                            required costom-minlength="4" costom-maxlength="20">
                                             <!-- {{textInput.errors | json}} -->
                                         <span class="help-block" *ngIf="textInput.invalid && (textInput.touched || form1Html.submitted)">
                                             <div class="app-invalid" *ngIf="textInput.errors.required">Text is required</div>
@@ -345,6 +345,123 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
+                            <h5>Group datePickerData</h5>
+                             <!-- ********** yearPickerInput ********** -->
+                             <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Year Picker
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input [owlDateTimeTrigger]="yearPickerInput" [owlDateTime]="yearPickerInput" placeholder="Year" class='form-control' 
+                                            id='yearPickerInput' name='yearPickerInput' [(ngModel)]="form1Ts.datePickerData.yearPickerInput">
+                                            <owl-date-time [pickerType]="'calendar'" [startView]="'multi-years'" #yearPickerInput
+                                            (yearSelected)="chosenYearHandler($event,yearPickerInput)"></owl-date-time>
+                                            <div class="input-group-append">
+                                                <label class="input-group-text" for='yearPickerInput'>
+                                                    <i class="fa fa-calendar"></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ********** monthPickerInput ********** -->
+                                <div class="col-sm-6">
+                                    <label>Month Picker
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input [owlDateTimeTrigger]="monthPickerInput" [owlDateTime]="monthPickerInput" placeholder="Month" class='form-control' 
+                                            id='monthPickerInput' name='monthPickerInput' [(ngModel)]="form1Ts.datePickerData.monthPickerInput">
+                                            <owl-date-time [pickerType]="'calendar'" [startView]="'year'" #monthPickerInput
+                                            (monthSelected)="chosenMonthHandler($event,monthPickerInput)"></owl-date-time>
+                                            <div class="input-group-append">
+                                                <label class="input-group-text" for='monthPickerInput'>
+                                                    <i class="fa fa-calendar"></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- ********** datePickerInput ********** -->
+                             <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Date Picker
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">    
+                                        <div class="input-group">
+                                            <input [owlDateTime]="datePickerInput" [owlDateTimeTrigger]="datePickerInput" placeholder="Date" class='form-control' 
+                                            id='datePickerInput' name='datePickerInput' [(ngModel)]="form1Ts.datePickerData.datePickerInput">
+                                            <owl-date-time [pickerType]="'calendar'" #datePickerInput></owl-date-time>
+                                            <div class="input-group-append">
+                                                <label class="input-group-text" for='datePickerInput'>
+                                                    <i class="fa fa-calendar"></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                             <!-- ********** timePickerInput ********** -->
+                                <div class="col-sm-6">
+                                    <label>Time Picker
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">   
+                                        <div class="input-group">
+                                            <input [owlDateTime]="timePickerInput" [owlDateTimeTrigger]="timePickerInput" placeholder="Time" class='form-control' 
+                                            id='timePickerInput' name='timePickerInput' [(ngModel)]="form1Ts.datePickerData.timePickerInput">
+                                            <owl-date-time [pickerType]="'timer'"  #timePickerInput></owl-date-time>
+                                            <div class="input-group-append">
+                                                <label class="input-group-text" for='timePickerInput'>
+                                                    <i class="fa fa-clock-o"></i>
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                             <!-- ********** dateTimePickerInput ********** -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Date Time Picker
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">    
+                                        <div class="form-group">   
+                                            <div class="input-group">
+                                                <input [owlDateTime]="dateTimePickerInput" [owlDateTimeTrigger]="dateTimePickerInput" placeholder="Date Time" class='form-control' 
+                                                id='dateTimePickerInput' name='dateTimePickerInput' [(ngModel)]="form1Ts.datePickerData.dateTimePickerInput">
+                                                <owl-date-time #dateTimePickerInput></owl-date-time>
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for='dateTimePickerInput'>
+                                                        <i class="fa fa-calendar"></i>
+                                                    </label>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row">
                                     <div class="col-sm-12">
@@ -432,6 +549,29 @@
                                 : {{form1Ts.selectData.multipleSelectCheckboxInput}}<br>
                             </div>
                         </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                datePickerData:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-4">
+                                yearPickerInput             <br>
+                                monthPickerInput             <br>
+                                datePickerInput             <br>
+                                timePickerInput             <br>
+                                dateTimePickerInput         <br>
+                            </div>
+                            <div class="col-sm-7">
+                                : {{form1Ts.datePickerData.yearPickerInput}}<br>
+                                : {{form1Ts.datePickerData.monthPickerInput}}<br>
+                                : {{form1Ts.datePickerData.datePickerInput}}<br>
+                                : {{form1Ts.datePickerData.timePickerInput}}<br>
+                                : {{form1Ts.datePickerData.dateTimePickerInput}}<br>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -493,6 +633,29 @@
                                 : {{form1Output.selectData.multipleSelectHideInput}}<br>
                                 : {{form1Output.selectData.multipleSelectGroupInput}}<br>
                                 : {{form1Output.selectData.multipleSelectCheckboxInput}}<br>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                datePickerData:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-4">
+                                yearPickerInput             <br>
+                                monthPickerInput             <br>
+                                datePickerInput             <br>
+                                timePickerInput             <br>
+                                dateTimePickerInput             <br>
+                            </div>
+                            <div class="col-sm-7">
+                                : {{form1Output.datePickerData.yearPickerInput}}<br>
+                                : {{form1Output.datePickerData.monthPickerInput}}<br>
+                                : {{form1Output.datePickerData.datePickerInput}}<br>
+                                : {{form1Output.datePickerData.timePickerInput}}<br>
+                                : {{form1Output.datePickerData.dateTimePickerInput}}<br>
                             </div>
                         </div>
                     </div>
