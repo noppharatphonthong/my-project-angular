@@ -437,9 +437,29 @@
                                 </div>
                             </div>
 
-                            
-                             <!-- ********** dateTimePickerInput ********** -->
-                            <div class="row">
+                             <!-- ********** yearMonthPickerInput ********** -->
+                             <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Month Year Picker
+                                        <span class="app-required-color">* 
+                                            <span style="color:rgb(170, 170, 170)"> required</span>
+                                        </span>
+                                    </label>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input [owlDateTimeTrigger]="yearMonthPickerInput" [owlDateTime]="yearMonthPickerInput" placeholder="Month Year" class='form-control' 
+                                            id='yearMonthPickerInput' name='yearMonthPickerInput' [(ngModel)]="form1Ts.datePickerData.yearMonthPickerInput">
+                                            <owl-date-time [pickerType]="'calendar'" [startView]="'multi-years'" #yearMonthPickerInput
+                                            (monthSelected)="chosenMonthYearHandler($event,yearMonthPickerInput)"></owl-date-time>
+                                            <div class="input-group-append">
+                                                <label class="input-group-text" for='yearMonthPickerInput'>
+                                                    <i class="fa fa-calendar"></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- ********** dateTimePickerInput ********** -->
                                 <div class="col-sm-6">
                                     <label>Date Time Picker
                                         <span class="app-required-color">* 
@@ -563,6 +583,7 @@
                                 datePickerInput             <br>
                                 timePickerInput             <br>
                                 dateTimePickerInput         <br>
+                                yearMonthPickerInput         <br>
                             </div>
                             <div class="col-sm-7">
                                 : {{form1Ts.datePickerData.yearPickerInput}}<br>
@@ -570,6 +591,7 @@
                                 : {{form1Ts.datePickerData.datePickerInput}}<br>
                                 : {{form1Ts.datePickerData.timePickerInput}}<br>
                                 : {{form1Ts.datePickerData.dateTimePickerInput}}<br>
+                                : {{form1Ts.datePickerData.yearMonthPickerInput}}<br>
                             </div>
                         </div>
                     </div>
@@ -648,7 +670,8 @@
                                 monthPickerInput             <br>
                                 datePickerInput             <br>
                                 timePickerInput             <br>
-                                dateTimePickerInput             <br>
+                                dateTimePickerInput          <br>
+                                yearMonthPickerInput             <br>
                             </div>
                             <div class="col-sm-7">
                                 : {{form1Output.datePickerData.yearPickerInput}}<br>
@@ -656,6 +679,7 @@
                                 : {{form1Output.datePickerData.datePickerInput}}<br>
                                 : {{form1Output.datePickerData.timePickerInput}}<br>
                                 : {{form1Output.datePickerData.dateTimePickerInput}}<br>
+                                : {{form1Output.datePickerData.yearMonthPickerInput}}<br>
                             </div>
                         </div>
                     </div>

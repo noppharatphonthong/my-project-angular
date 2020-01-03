@@ -51,7 +51,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
     Page1Component,
     Page2Component,
-    Page3Component
+    Page3Component,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule
   ]
 })
 export class PagesModule { }

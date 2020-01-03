@@ -186,7 +186,6 @@ export class FormPageComponent implements OnInit {
 
   chosenYearHandler( event:any,datepicker:any ) {
     console.log("event Year : ",event);
-    
     var date = new Date(event)
     this.form1Ts.datePickerData.yearPickerInput = date;
     datepicker.close();
@@ -194,12 +193,17 @@ export class FormPageComponent implements OnInit {
 
   chosenMonthHandler( event:any,datepicker:any ) {
     console.log("event Month : ",event);
-    
     var date = new Date(event)
     this.form1Ts.datePickerData.monthPickerInput = date;
     datepicker.close();
   }
 
+  chosenMonthYearHandler( event:any,datepicker:any ) {
+    console.log("event Month Year : ",event);
+    var date = new Date(event)
+    this.form1Ts.datePickerData.yearMonthPickerInput = date;
+    datepicker.close();
+  }
 
   // ******************* Input Date Picker End ******************************************************
   // ************************************************************************************************
@@ -234,7 +238,8 @@ class Form_1 {
     monthPickerInput:null,
     datePickerInput: null,
     timePickerInput: null,
-    dateTimePickerInput:null
+    dateTimePickerInput:null,
+    yearMonthPickerInput:null
   }
 }
 // ******************* Form1 Model End **************************************************************
