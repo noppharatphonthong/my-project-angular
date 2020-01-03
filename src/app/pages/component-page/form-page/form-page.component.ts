@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppConstant } from 'src/app/constant/index';
+import { DatePipe } from '@angular/common';
 declare var $: any;
 
 @Component({
@@ -44,12 +45,39 @@ export class FormPageComponent implements OnInit {
     this.form1Ts.inputData.multipleFileInputDtl = null;
     this.form1Ts.inputData.checkboxInput = '';
     this.form1Ts.inputData.radioInput = "radio1";
+
      // selectData
     this.form1Ts.selectData.selectInput = null;
     this.form1Ts.selectData.multipleSelectInput = null;
     this.form1Ts.selectData.multipleSelectHideInput = null;
     this.form1Ts.selectData.multipleSelectGroupInput = null;
     this.form1Ts.selectData.multipleSelectCheckboxInput = null;
+
+    // datePickerData
+    let date = null;
+    // date = this.pipe.transform(new Date(), 'yyyy');
+    this.form1Ts.datePickerData.yearPickerInput = date;
+    this.yearPickerInputValue.nativeElement.value = date;
+
+    // date = this.pipe.transform(new Date(), 'MM');
+    this.form1Ts.datePickerData.monthPickerInput = date;
+    this.monthPickerInputValue.nativeElement.value = date;
+
+    // date = this.pipe.transform(new Date(), 'dd/MM/yyyy');
+    this.form1Ts.datePickerData.datePickerInput = date;
+    this.datePickerInputValue.nativeElement.value = date;
+
+    // date = this.pipe.transform(new Date(), 'HH:mm');
+    this.form1Ts.datePickerData.timePickerInput = date;
+    this.timePickerInputValue.nativeElement.value = date;
+
+    // date = this.pipe.transform(new Date(), 'yyyy/MM');
+    this.form1Ts.datePickerData.yearMonthPickerInput = date;
+    this.yearMonthPickerInputValue.nativeElement.value = date;
+
+    // date = this.pipe.transform(new Date(), 'dd/MM/yyyy HH:mm');
+    this.form1Ts.datePickerData.dateTimePickerInput = date;
+    this.dateTimePickerInputValue.nativeElement.value = date;
   }
 
   setForm1Auto() {
@@ -72,6 +100,33 @@ export class FormPageComponent implements OnInit {
     this.form1Ts.selectData.multipleSelectHideInput = [2,3];
     this.form1Ts.selectData.multipleSelectGroupInput = [3,4];
     this.form1Ts.selectData.multipleSelectCheckboxInput = [1,2,3];
+
+    // datePickerData
+    let date = null;
+    date = this.pipe.transform(new Date(), 'yyyy');
+    this.form1Ts.datePickerData.yearPickerInput = date;
+    this.yearPickerInputValue.nativeElement.value = date;
+
+    date = this.pipe.transform(new Date(), 'MM');
+    this.form1Ts.datePickerData.monthPickerInput = date;
+    this.monthPickerInputValue.nativeElement.value = date;
+
+    date = this.pipe.transform(new Date(), 'dd/MM/yyyy');
+    this.form1Ts.datePickerData.datePickerInput = date;
+    this.datePickerInputValue.nativeElement.value = date;
+
+    date = this.pipe.transform(new Date(), 'HH:mm');
+    this.form1Ts.datePickerData.timePickerInput = date;
+    this.timePickerInputValue.nativeElement.value = date;
+
+    date = this.pipe.transform(new Date(), 'yyyy/MM');
+    this.form1Ts.datePickerData.yearMonthPickerInput = date;
+    this.yearMonthPickerInputValue.nativeElement.value = date;
+
+    date = this.pipe.transform(new Date(), 'dd/MM/yyyy HH:mm');
+    this.form1Ts.datePickerData.dateTimePickerInput = date;
+    this.dateTimePickerInputValue.nativeElement.value = date;
+
   }
 
   setForm1Output() {
@@ -183,27 +238,64 @@ export class FormPageComponent implements OnInit {
   // ******************* Input Date Picker **********************************************************
   // Use ng-pick-datetime
 
-
-  chosenYearHandler( event:any,datepicker:any ) {
-    console.log("event Year : ",event);
-    var date = new Date(event)
+  @ViewChild('yearPickerInputValue', { static: true }) yearPickerInputValue: any;
+  @ViewChild('yearPickerInput', { static: true }) yearPickerInput: any;
+  pipe = new DatePipe('en-US');
+  chosenYearHandler( valueDate:any,datepicker:any ) {
+    let date = this.pipe.transform(new Date(valueDate), 'yyyy');
+    console.log("set Value : ",date); 
     this.form1Ts.datePickerData.yearPickerInput = date;
+    this.yearPickerInputValue.nativeElement.value = date;
     datepicker.close();
   }
 
+  @ViewChild('monthPickerInputValue', { static: true }) monthPickerInputValue: any;
   chosenMonthHandler( event:any,datepicker:any ) {
-    console.log("event Month : ",event);
-    var date = new Date(event)
+    let date = this.pipe.transform(new Date(event), 'MM');
+    console.log("set Value : ",date); 
     this.form1Ts.datePickerData.monthPickerInput = date;
+    this.monthPickerInputValue.nativeElement.value = date;
     datepicker.close();
   }
 
-  chosenMonthYearHandler( event:any,datepicker:any ) {
-    console.log("event Month Year : ",event);
-    var date = new Date(event)
+  @ViewChild('datePickerInputValue', { static: true }) datePickerInputValue: any;
+  chosenDateHandler() {
+    let date = this.pipe.transform(new Date(this.datePickerInputValue.nativeElement.value), 'dd/MM/yyyy');
+    console.log("set Value : ",date); 
+    this.form1Ts.datePickerData.datePickerInput = date;
+    this.datePickerInputValue.nativeElement.value = date;
+  }
+
+  @ViewChild('timePickerInputValue', { static: true }) timePickerInputValue: any;
+  @ViewChild('timePickerInput', { static: true }) timePickerInput: any;
+  chosenTimeHandler() {
+    let time = this.pipe.transform(new Date(this.timePickerInput.startAt), 'HH:mm');
+    console.log("timePickerInputValue : ",this.timePickerInputValue.nativeElement.value); 
+    console.log("timePickerInput : ",this.timePickerInput.startAt); 
+    console.log("time : ",time);
+    this.form1Ts.datePickerData.timePickerInput = time;
+    this.timePickerInputValue.nativeElement.value = time;
+  }
+
+  @ViewChild('yearMonthPickerInputValue', { static: true }) yearMonthPickerInputValue: any;
+  chosenMonthYearHandler(event:any,datepicker:any) {
+    let date = this.pipe.transform(new Date(event), 'yyyy/MM');
+    console.log("setarrivalTime : ",date); 
+    this.form1Ts.datePickerData.yearMonthPickerInput = date;
+    this.yearMonthPickerInputValue.nativeElement.value = date;
+    
     this.form1Ts.datePickerData.yearMonthPickerInput = date;
     datepicker.close();
   }
+
+  @ViewChild('dateTimePickerInputValue', { static: true }) dateTimePickerInputValue: any;
+  chosenDateTimeHandler() {
+    let date = this.pipe.transform(new Date(this.dateTimePickerInputValue.nativeElement.value), 'dd/MM/yyyy HH:mm');
+    console.log("set Value : ",date); 
+    this.form1Ts.datePickerData.dateTimePickerInput = date;
+    this.dateTimePickerInputValue.nativeElement.value = date;
+  }
+  
 
   // ******************* Input Date Picker End ******************************************************
   // ************************************************************************************************
@@ -238,8 +330,8 @@ class Form_1 {
     monthPickerInput:null,
     datePickerInput: null,
     timePickerInput: null,
-    dateTimePickerInput:null,
-    yearMonthPickerInput:null
+    yearMonthPickerInput:null,
+    dateTimePickerInput:null
   }
 }
 // ******************* Form1 Model End **************************************************************

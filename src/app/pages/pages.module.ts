@@ -16,6 +16,7 @@ import { CostomMaxLength } from '../component/form/validator/CostomMaxLength';
 import { CostomMinLength } from '../component/form/validator/CostomMinLength';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { TestPageComponent } from './test-page/test-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
     Page1Component,
     Page2Component,
-    Page3Component
+    Page3Component,
+    TestPageComponent
   ],
   imports: [
     CommonModule,
